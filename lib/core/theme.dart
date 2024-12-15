@@ -58,17 +58,17 @@ class AppTheme {
         ),
         titleSmall: GoogleFonts.roboto(
           fontSize: FontSizes.small,
-          color: Colors.white,
+          color: DefaultColors.textBodyColor,
           fontWeight: FontWeight.bold,
         ),
         titleMedium: GoogleFonts.roboto(
           fontSize: FontSizes.standard,
-          color: Colors.white,
+          color: DefaultColors.textBodyColor,
           fontWeight: FontWeight.bold,
         ),
         titleLarge: GoogleFonts.roboto(
-          fontSize: FontSizes.doubleExtraLarge,
-          color: Colors.white,
+          fontSize: FontSizes.large,
+          color: DefaultColors.textBodyColor,
           fontWeight: FontWeight.bold,
         ),
         labelSmall: GoogleFonts.roboto(
