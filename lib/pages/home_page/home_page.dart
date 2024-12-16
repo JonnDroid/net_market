@@ -3,6 +3,7 @@ import 'package:net_market/core/theme.dart';
 import 'package:net_market/pages/widgets/category_list_view.dart';
 import 'package:net_market/pages/widgets/header.dart';
 import 'package:net_market/pages/widgets/price_filter.dart';
+import 'package:net_market/pages/widgets/product_list_view.dart';
 import 'package:net_market/pages/widgets/search_bar.dart';
 
 class HomePage extends StatelessWidget {
@@ -22,6 +23,7 @@ class HomePage extends StatelessWidget {
               CategoryListView(),
               Header(text: '10 products to choose from'),
               PriceFilter(),
+              ProductListView(),
             ],
           ),
         ),
