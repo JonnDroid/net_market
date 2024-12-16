@@ -29,17 +29,21 @@ class AppTheme {
   static ThemeData get lightTheme {
     return ThemeData(
       primaryColor: const Color(0xff7A6EAE),
-      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        selectedLabelStyle: TextStyle(
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        selectedLabelStyle: GoogleFonts.roboto(
+          fontSize: FontSizes.extraSmall,
+          fontWeight: FontWeight.w400,
           color: DefaultColors.secondary,
         ),
-        unselectedLabelStyle: TextStyle(
+        unselectedLabelStyle: GoogleFonts.roboto(
+          fontSize: FontSizes.extraSmall,
+          fontWeight: FontWeight.w400,
           color: DefaultColors.textBodyColor,
         ),
-        selectedIconTheme: IconThemeData(
+        selectedIconTheme: const IconThemeData(
           color: DefaultColors.secondary,
         ),
-        unselectedIconTheme: IconThemeData(
+        unselectedIconTheme: const IconThemeData(
           color: DefaultColors.textBodyColor,
         ),
         showSelectedLabels: true,

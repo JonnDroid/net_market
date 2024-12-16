@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:net_market/pages/widgets/category_item.dart';
+import 'category_item.dart';
 
 class CategoryListView extends StatelessWidget {
   const CategoryListView({

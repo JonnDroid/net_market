@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:net_market/pages/widgets/price_filter_chip.dart';
+import 'price_filter_chip.dart';
 
 class PriceFilter extends StatelessWidget {
   const PriceFilter({

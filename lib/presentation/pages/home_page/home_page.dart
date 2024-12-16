@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:net_market/core/theme.dart';
-import 'package:net_market/pages/widgets/category_list_view.dart';
-import 'package:net_market/pages/widgets/header.dart';
-import 'package:net_market/pages/widgets/price_filter.dart';
-import 'package:net_market/pages/widgets/product_list_view.dart';
-import 'package:net_market/pages/widgets/search_bar.dart';
+import '../widgets/category_list_view.dart';
+import '../widgets/header.dart';
+import '../widgets/price_filter.dart';
+import '../widgets/product_list_view.dart';
+import '../widgets/search_bar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

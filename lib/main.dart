@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:net_market/core/theme.dart';
-import 'package:net_market/pages/home_page/home_page.dart';
+
+import 'presentation/router/app_router.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,14 +10,13 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Patch - Skill Test',
       theme: AppTheme.lightTheme,
-      home: const HomePage(),
+      routerConfig: appRouter,
     );
   }
 }
