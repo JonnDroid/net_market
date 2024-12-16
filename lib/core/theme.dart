@@ -20,7 +20,9 @@ class DefaultColors {
   static const Color textBodyColor = Color(0xff000000);
   static const Color subtextBodyColor = Color(0xff7C7C7C);
 
-  static const Color cardIcon = Color(0xffCACACA);
+  static const Color cardColor = Color(0xffCACACA);
+  static const Color circleBorder1 = Color(0xFF4CBACC);
+  static const Color circleBorder2 = Color(0xFF77D28B);
 }
 
 class AppTheme {

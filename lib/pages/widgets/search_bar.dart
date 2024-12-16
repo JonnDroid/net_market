@@ -16,7 +16,7 @@ class AppSearchBar extends StatelessWidget {
           borderRadius: BorderRadius.circular(8.0),
           boxShadow: const [
             BoxShadow(
-              color: DefaultColors.cardIcon,
+              color: DefaultColors.cardColor,
               offset: Offset(0, 4),
               blurRadius: 4,
               spreadRadius: 0,
