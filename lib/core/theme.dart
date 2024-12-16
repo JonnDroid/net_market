@@ -33,12 +33,10 @@ class AppTheme {
         selectedLabelStyle: GoogleFonts.roboto(
           fontSize: FontSizes.extraSmall,
           fontWeight: FontWeight.w400,
-          color: DefaultColors.secondary,
         ),
         unselectedLabelStyle: GoogleFonts.roboto(
           fontSize: FontSizes.extraSmall,
           fontWeight: FontWeight.w400,
-          color: DefaultColors.textBodyColor,
         ),
         selectedIconTheme: const IconThemeData(
           color: DefaultColors.secondary,
@@ -46,6 +44,8 @@ class AppTheme {
         unselectedIconTheme: const IconThemeData(
           color: DefaultColors.textBodyColor,
         ),
+        selectedItemColor: DefaultColors.secondary,
+        unselectedItemColor: DefaultColors.textBodyColor,
         showSelectedLabels: true,
         showUnselectedLabels: true,
       ),

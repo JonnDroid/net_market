@@ -1,14 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:net_market/core/theme.dart';
 
-class BottomNavBar extends StatelessWidget {
+class BottomNavBar extends StatefulWidget {
   const BottomNavBar({
     super.key,
+    required this.navigationShell,
   });
+  final StatefulNavigationShell navigationShell;
 
+  @override
+  State<BottomNavBar> createState() => _BottomNavBarState();
+}
+
+class _BottomNavBarState extends State<BottomNavBar> {
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      onTap: (index) {
+        setState(() {
+          selectedIndex = index;
+          widget.navigationShell.goBranch(index);
+        });
+      },
+      backgroundColor: DefaultColors.white,
       type: BottomNavigationBarType.fixed,
+      currentIndex: selectedIndex,
       selectedLabelStyle:
           Theme.of(context).bottomNavigationBarTheme.selectedLabelStyle,
       unselectedLabelStyle:

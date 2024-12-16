@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:net_market/core/theme.dart';
 
 import 'presentation/router/app_router.dart';
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: DefaultColors.primary,
+      systemNavigationBarColor: DefaultColors.secondary,
+    ),
+  );
   runApp(const MyApp());
 }
 

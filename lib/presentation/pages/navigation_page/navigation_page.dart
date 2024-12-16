@@ -14,7 +14,7 @@ class NavigationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: navigationShell,
-      bottomNavigationBar: const BottomNavBar(),
+      bottomNavigationBar: BottomNavBar(navigationShell: navigationShell),
     );
   }
 }
