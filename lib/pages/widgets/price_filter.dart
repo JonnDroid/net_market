@@ -1,45 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:net_market/core/theme.dart';
+import 'package:net_market/pages/widgets/price_filter_chip.dart';
 
-class PriceFilter extends StatefulWidget {
+class PriceFilter extends StatelessWidget {
   const PriceFilter({
     super.key,
-    required this.text,
   });
-
-  final String text;
-
-  @override
-  State<PriceFilter> createState() => _PriceFilterState();
-}
-
-class _PriceFilterState extends State<PriceFilter> {
-  bool isSelected = false;
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        setState(() {
-          isSelected = !isSelected;
-        });
-      },
-      child: Container(
-        margin: const EdgeInsets.only(left: 5),
-        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8.0),
-        decoration: BoxDecoration(
-          color: isSelected ? DefaultColors.primary : DefaultColors.cardColor,
-          border: Border.all(color: DefaultColors.cardColor, width: 0.5),
-          borderRadius: BorderRadius.circular(4),
-        ),
-        child: Text(
-          widget.text,
-          style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                color: isSelected
-                    ? DefaultColors.white
-                    : DefaultColors.textBodyColor,
-              ),
-        ),
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+      child: Row(
+        children: [
+          PriceFilterChip(text: 'Lowest price first'),
+          PriceFilterChip(text: 'Highest price first'),
+        ],
       ),
     );
   }

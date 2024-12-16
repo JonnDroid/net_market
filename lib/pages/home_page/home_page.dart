@@ -21,15 +21,7 @@ class HomePage extends StatelessWidget {
               Header(text: 'Choose from any category'),
               CategoryListView(),
               Header(text: '10 products to choose from'),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
-                child: Row(
-                  children: [
-                    PriceFilter(text: 'Lowest price first'),
-                    PriceFilter(text: 'Highest price first'),
-                  ],
-                ),
-              ),
+              PriceFilter(),
             ],
           ),
         ),
