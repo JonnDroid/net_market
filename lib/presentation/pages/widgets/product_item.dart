@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:net_market/core/theme.dart';
+import 'package:net_market/data/model/product_model.dart';
 
 class ProductItem extends StatelessWidget {
-  const ProductItem({
-    super.key,
-  });
+  const ProductItem(
+      {super.key, required this.productList, required this.index});
+  final List<ProductModel> productList;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -16,18 +18,15 @@ class ProductItem extends StatelessWidget {
       ),
       width: MediaQuery.sizeOf(context).width,
       height: 100,
-      child: const Column(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ProductImage(
-              imageUrl:
-                  'https://parksononline.com.my/pub/media/catalog/product/cache/74dd13153097d0b1d419934f9584ba5f/7/7/77294715-01-main.jpg'),
+          ProductImage(imageUrl: productList[index].image),
           ProductDetails(
-            productName: 'Product Name Brand XYZ',
-            productDesc:
-                'The description is too long, it will not fit in the container',
-            productPrice: 'P2000,00',
+            productName: productList[index].title,
+            productDesc: productList[index].description,
+            productPrice: '\$${productList[index].price}',
           )
         ],
       ),
@@ -50,7 +49,7 @@ class ProductImage extends StatelessWidget {
         width: MediaQuery.sizeOf(context).width,
         decoration: BoxDecoration(
           image: DecorationImage(
-            fit: BoxFit.cover,
+            fit: BoxFit.scaleDown,
             image: NetworkImage(
               imageUrl,
             ),

@@ -5,7 +5,7 @@ import 'package:dio/dio.dart';
 
 part 'api_service.g.dart';
 
-const String BASE_URL = 'https://fakestoreapi.com/products?limit=50';
+const String BASE_URL = 'https://fakestoreapi.com/';
 
 @RestApi(baseUrl: BASE_URL)
 abstract class ApiService {
@@ -13,7 +13,4 @@ abstract class ApiService {
 
   @GET('products')
   Future<List<ProductModel>> getProducts(@Query('limit') int limit);
-
-  @GET('')
-  Future<List<ProductModel>> getAllProducts();
 }

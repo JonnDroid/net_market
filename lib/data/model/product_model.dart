@@ -5,7 +5,7 @@ part 'product_model.g.dart';
 class ProductModel {
   final int id;
   final String title;
-  final int price;
+  final double price;
   final String description;
   final String category;
   final String image;

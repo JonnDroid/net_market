@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:net_market/data/model/product_model.dart';
 import 'product_item.dart';
 
 class ProductListView extends StatelessWidget {
   const ProductListView({
     super.key,
+    required this.productList,
   });
+  final List<ProductModel> productList;
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +23,9 @@ class ProductListView extends StatelessWidget {
             mainAxisSpacing: 4.0,
             childAspectRatio: 3 / 4.5,
           ),
-          itemCount: 10,
+          itemCount: productList.length,
           itemBuilder: (BuildContext context, int index) {
-            return const ProductItem();
+            return ProductItem(productList: productList, index: index);
           },
         ),
       ),

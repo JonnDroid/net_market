@@ -38,8 +38,8 @@ class HomeContent extends StatelessWidget {
             const Header(text: 'Choose from any category'),
             const CategoryListView(),
             Header(text: '${productList.length} products to choose from'),
-            const PriceFilter(),
-            const ProductListView(),
+            PriceFilter(),
+            ProductListView(productList: productList),
           ],
         ),
       ),
@@ -51,7 +51,7 @@ FutureBuilder _body() {
   final apiService =
       ApiService(Dio(BaseOptions(contentType: "application.json")));
   return FutureBuilder(
-      future: apiService.getAllProducts(),
+      future: apiService.getProducts(50),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           return HomeContent(
