@@ -46,35 +46,40 @@ class _HomeContentState extends State<HomeContent> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Container(
-        color: DefaultColors.white,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const AppSearchBar(),
-            const Header(text: 'Choose from any category'),
-            CategoryListView(onSelectFilter: (index) {
-              setState(() {
-                categoryFilterIndex = index;
-                filteredProductList = _sortProductsByPrice(
-                    _filterProductsByCategory(widget.productList, index),
-                    priceFilterIndex);
-              });
-            }),
-            Header(
-                text: '${filteredProductList.length} products to choose from'),
-            PriceFilter(onSelectFilter: (index) {
-              setState(() {
-                priceFilterIndex = index;
-                filteredProductList = _sortProductsByPrice(
-                    _filterProductsByCategory(
-                        widget.productList, categoryFilterIndex),
-                    index);
-              });
-            }),
-            ProductListView(productList: filteredProductList),
-          ],
-        ),
+      child: ListView(
+        children: [
+          Container(
+            color: DefaultColors.white,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const AppSearchBar(),
+                const Header(text: 'Choose from any category'),
+                CategoryListView(onSelectFilter: (index) {
+                  setState(() {
+                    categoryFilterIndex = index;
+                    filteredProductList = _sortProductsByPrice(
+                        _filterProductsByCategory(widget.productList, index),
+                        priceFilterIndex);
+                  });
+                }),
+                Header(
+                    text:
+                        '${filteredProductList.length} products to choose from'),
+                PriceFilter(onSelectFilter: (index) {
+                  setState(() {
+                    priceFilterIndex = index;
+                    filteredProductList = _sortProductsByPrice(
+                        _filterProductsByCategory(
+                            widget.productList, categoryFilterIndex),
+                        index);
+                  });
+                }),
+                ProductListView(productList: filteredProductList),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -130,7 +135,8 @@ FutureBuilder _body() {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           final productList = snapshot.data as List<ProductModel>;
-          return HomeContent(productList: productList);
+          return HomeContent(
+              productList: productList.isEmpty ? [] : productList);
         } else {
           return const Center(child: CircularProgressIndicator());
         }

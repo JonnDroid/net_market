@@ -11,23 +11,23 @@ class ProductListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        width: MediaQuery.sizeOf(context).width,
-        margin: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5.0),
-        padding: const EdgeInsets.all(5.0),
-        child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 4.0,
-            mainAxisSpacing: 4.0,
-            childAspectRatio: 3 / 4.5,
-          ),
-          itemCount: productList.length,
-          itemBuilder: (BuildContext context, int index) {
-            return ProductItem(productList: productList, index: index);
-          },
+    return Container(
+      width: MediaQuery.sizeOf(context).width,
+      margin: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5.0),
+      padding: const EdgeInsets.all(5.0),
+      child: GridView.builder(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 4.0,
+          mainAxisSpacing: 4.0,
+          childAspectRatio: 3 / 4.5,
         ),
+        itemCount: productList.length,
+        itemBuilder: (BuildContext context, int index) {
+          return ProductItem(productList: productList, index: index);
+        },
       ),
     );
   }
