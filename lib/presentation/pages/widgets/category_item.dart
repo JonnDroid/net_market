@@ -3,31 +3,24 @@ import 'package:flutter/material.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:net_market/core/theme.dart';
 
-class CategoryItem extends StatefulWidget {
+class CategoryItem extends StatelessWidget {
   const CategoryItem({
     super.key,
-    required this.imageUrl,
+    required this.imagePath,
     required this.categoryName,
+    required this.isSelected,
+    required this.onPressed,
   });
 
-  final String imageUrl;
+  final String imagePath;
   final String categoryName;
-
-  @override
-  State<CategoryItem> createState() => _CategoryItemState();
-}
-
-class _CategoryItemState extends State<CategoryItem> {
-  bool isSelected = false;
+  final bool isSelected;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        setState(() {
-          isSelected = !isSelected;
-        });
-      },
+      onTap: onPressed,
       child: SizedBox(
           width: MediaQuery.sizeOf(context).width * 0.22,
           child: Column(
@@ -55,7 +48,7 @@ class _CategoryItemState extends State<CategoryItem> {
                             : null,
                         shape: BoxShape.circle,
                         image: DecorationImage(
-                          image: NetworkImage(widget.imageUrl),
+                          image: AssetImage(imagePath),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -67,7 +60,7 @@ class _CategoryItemState extends State<CategoryItem> {
               Expanded(
                 child: Center(
                   child: Text(
-                    widget.categoryName.toTitleCase(),
+                    categoryName.toTitleCase(),
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(
                           fontSize: FontSizes.extraSmall,
                         ),
