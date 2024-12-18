@@ -5,7 +5,9 @@ import 'category_item.dart';
 class CategoryListView extends StatefulWidget {
   const CategoryListView({
     super.key,
+    required this.onSelectFilter,
   });
+  final Function(int) onSelectFilter;
 
   @override
   State<CategoryListView> createState() => _CategoryListViewState();
@@ -41,6 +43,7 @@ class _CategoryListViewState extends State<CategoryListView> {
                 selectedIndex != index
                     ? selectedIndex = index
                     : selectedIndex = -1;
+                widget.onSelectFilter(selectedIndex);
               });
             },
           );

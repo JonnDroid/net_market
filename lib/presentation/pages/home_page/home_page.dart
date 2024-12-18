@@ -33,13 +33,14 @@ class HomeContent extends StatefulWidget {
 
 class _HomeContentState extends State<HomeContent> {
   int priceFilterIndex = 0;
+  int categoryFilterIndex = -1;
   late List<ProductModel> filteredProductList;
 
   @override
   void initState() {
     super.initState();
     filteredProductList = widget.productList;
-    _sortProductList(filteredProductList, priceFilterIndex);
+    _sortProductsByPrice(filteredProductList, priceFilterIndex);
   }
 
   @override
@@ -52,14 +53,23 @@ class _HomeContentState extends State<HomeContent> {
           children: [
             const AppSearchBar(),
             const Header(text: 'Choose from any category'),
-            const CategoryListView(),
+            CategoryListView(onSelectFilter: (index) {
+              setState(() {
+                categoryFilterIndex = index;
+                filteredProductList = _sortProductsByPrice(
+                    _filterProductsByCategory(widget.productList, index),
+                    priceFilterIndex);
+              });
+            }),
             Header(
-                text: '${widget.productList.length} products to choose from'),
+                text: '${filteredProductList.length} products to choose from'),
             PriceFilter(onSelectFilter: (index) {
               setState(() {
                 priceFilterIndex = index;
-                filteredProductList =
-                    _sortProductList(widget.productList, index);
+                filteredProductList = _sortProductsByPrice(
+                    _filterProductsByCategory(
+                        widget.productList, categoryFilterIndex),
+                    index);
               });
             }),
             ProductListView(productList: filteredProductList),
@@ -70,7 +80,32 @@ class _HomeContentState extends State<HomeContent> {
   }
 }
 
-List<ProductModel> _sortProductList(List<ProductModel> productList, int index) {
+List<ProductModel> _filterProductsByCategory(
+    List<ProductModel> productList, int index) {
+  switch (index) {
+    case 0:
+      return productList
+          .where((product) => product.category == 'electronics')
+          .toList();
+    case 1:
+      return productList
+          .where((product) => product.category == 'jewelery')
+          .toList();
+    case 2:
+      return productList
+          .where((product) => product.category == 'men\'s clothing')
+          .toList();
+    case 3:
+      return productList
+          .where((product) => product.category == 'women\'s clothing')
+          .toList();
+    default:
+      return productList;
+  }
+}
+
+List<ProductModel> _sortProductsByPrice(
+    List<ProductModel> productList, int index) {
   productList.sort(
     (a, b) {
       switch (index) {
