@@ -20,12 +20,28 @@ class HomePage extends StatelessWidget {
   }
 }
 
-class HomeContent extends StatelessWidget {
+class HomeContent extends StatefulWidget {
   const HomeContent({
     super.key,
     required this.productList,
   });
   final List<ProductModel> productList;
+
+  @override
+  State<HomeContent> createState() => _HomeContentState();
+}
+
+class _HomeContentState extends State<HomeContent> {
+  int priceFilterIndex = 0;
+  late List<ProductModel> filteredProductList;
+
+  @override
+  void initState() {
+    super.initState();
+    filteredProductList = widget.productList;
+    _sortProductList(filteredProductList, priceFilterIndex);
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -37,14 +53,38 @@ class HomeContent extends StatelessWidget {
             const AppSearchBar(),
             const Header(text: 'Choose from any category'),
             const CategoryListView(),
-            Header(text: '${productList.length} products to choose from'),
-            PriceFilter(),
-            ProductListView(productList: productList),
+            Header(
+                text: '${widget.productList.length} products to choose from'),
+            PriceFilter(onSelectFilter: (index) {
+              setState(() {
+                priceFilterIndex = index;
+                filteredProductList =
+                    _sortProductList(widget.productList, index);
+              });
+            }),
+            ProductListView(productList: filteredProductList),
           ],
         ),
       ),
     );
   }
+}
+
+List<ProductModel> _sortProductList(List<ProductModel> productList, int index) {
+  productList.sort(
+    (a, b) {
+      switch (index) {
+        case 0:
+          return a.price.compareTo(b.price);
+        case 1:
+          return b.price.compareTo(a.price);
+        default:
+          return 0;
+      }
+    },
+  );
+
+  return productList;
 }
 
 FutureBuilder _body() {
@@ -54,9 +94,8 @@ FutureBuilder _body() {
       future: apiService.getProducts(50),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
-          return HomeContent(
-            productList: snapshot.data != null ? snapshot.data! : const [],
-          );
+          final productList = snapshot.data as List<ProductModel>;
+          return HomeContent(productList: productList);
         } else {
           return const Center(child: CircularProgressIndicator());
         }

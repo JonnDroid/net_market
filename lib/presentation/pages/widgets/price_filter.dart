@@ -4,15 +4,22 @@ import 'price_filter_chip.dart';
 class PriceFilter extends StatefulWidget {
   const PriceFilter({
     super.key,
+    required this.onSelectFilter,
   });
+
+  final Function(int) onSelectFilter;
 
   @override
   State<PriceFilter> createState() => _PriceFilterState();
 }
 
 class _PriceFilterState extends State<PriceFilter> {
-  List<String> filterLabel = ['Lowest price first', 'Highest price first'];
   int selectedIndex = 0;
+
+  final List<String> filterLabel = [
+    'Lowest price first',
+    'Highest price first'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +38,7 @@ class _PriceFilterState extends State<PriceFilter> {
                   onPressed: () {
                     setState(() {
                       selectedIndex = index;
+                      widget.onSelectFilter(index);
                     });
                   });
             },

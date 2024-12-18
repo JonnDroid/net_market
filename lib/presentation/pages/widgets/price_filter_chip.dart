@@ -1,8 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:net_market/core/theme.dart';
 
-class PriceFilterChip extends StatefulWidget {
+class PriceFilterChip extends StatelessWidget {
   const PriceFilterChip({
     super.key,
     required this.text,
@@ -15,29 +14,22 @@ class PriceFilterChip extends StatefulWidget {
   final VoidCallback? onPressed;
 
   @override
-  State<PriceFilterChip> createState() => _PriceFilterState();
-}
-
-class _PriceFilterState extends State<PriceFilterChip> {
-  @override
   Widget build(BuildContext context) {
     return IntrinsicHeight(
       child: InkWell(
-        onTap: widget.onPressed,
+        onTap: onPressed,
         child: Container(
           margin: const EdgeInsets.only(left: 5),
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8.0),
           decoration: BoxDecoration(
-            color: widget.isSelected
-                ? DefaultColors.primary
-                : DefaultColors.cardColor,
+            color: isSelected ? DefaultColors.primary : DefaultColors.cardColor,
             border: Border.all(color: DefaultColors.cardColor, width: 0.5),
             borderRadius: BorderRadius.circular(4),
           ),
           child: Text(
-            widget.text,
+            text,
             style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                  color: widget.isSelected
+                  color: isSelected
                       ? DefaultColors.white
                       : DefaultColors.textBodyColor,
                 ),
