@@ -1,16 +1,30 @@
-# net_market
+# Flutter App: Net Market
 
-A new Flutter project.
+An e-commerce mobile application that displays various items or products that are categorized as electronics, jewelery, or men's and women's clothing. All listed products can be sorted based on their price (lowest to highest or highest to lowest) and filtered based on their category.
 
-## Getting Started
+## Installation Guide
+### Pre-requisites
+1. **Flutter SDK**
+In order to develop Flutter Applications we need to have Flutter SDK installed in our computer.
+• [Get Flutter SDK Here](https://flutter-ko.dev/get-started/install)
 
-This project is a starting point for a Flutter application.
+2. **IDE (Visual Studio Code or Android Studio)**
+If you currently have no IDE installed in your system, download links are provided below:
+• [Download Visual Studio Code](https://code.visualstudio.com/download) and follow the [set-up guide](https://flutter-ko.dev/get-started/editor?tab=vscode) for VS Code.
+• [Download Android Studio](https://developer.android.com/studio) and follow the [set-up guide](https://flutter-ko.dev/get-started/editor?tab=androidstudio) for Android Studio.
 
-A few resources to get you started if this is your first Flutter project:
+3. **Git**
+• Make sure that [git is installed](https://github.com/git-guides/install-git) and follow the set-up for [VS Code](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git) or [Android Studio](https://developer.android.com/studio/projects/version-control)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Installation
+1. **Clone Repository**
+ In your terminal type or copy the code **git clone https://github.com/JonnDroid/net_market.git**
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Running the application
+1. **Create An Emulator or Connect Physical Device**
+• **Emulator:** Create an android emulator and ensure that it is connected and running.
+• **Physical Device:** Enable USB Debugging in Developer Options and ensure that it is plug into the computer.
+
+2. **Run The Application**
+• Select the device to you want to use.
+• Press **F5** or click **Run** button.
