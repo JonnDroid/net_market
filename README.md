@@ -4,14 +4,14 @@ An e-commerce mobile application that displays various items or products that ar
 
 ## Installation Guide
 ### Pre-requisites
-1. **Flutter SDK**
-In order to develop Flutter Applications we need to have Flutter SDK installed in our computer.
+1. **Flutter SDK**\
+In order to develop Flutter Applications we need to have Flutter SDK installed in our computer.\
 • [Get Flutter SDK Here](https://flutter-ko.dev/get-started/install)
 
-2. **IDE (Visual Studio Code or Android Studio)**
-If you currently have no IDE installed in your system, download links are provided below:
-• [Download Visual Studio Code](https://code.visualstudio.com/download) and follow the [set-up guide](https://flutter-ko.dev/get-started/editor?tab=vscode) for VS Code.
-• [Download Android Studio](https://developer.android.com/studio) and follow the [set-up guide](https://flutter-ko.dev/get-started/editor?tab=androidstudio) for Android Studio.
+2. **IDE (Visual Studio Code or Android Studio)**\
+If you currently have no IDE installed in your system, download links are provided below:\
+• [Download Visual Studio Code](https://code.visualstudio.com/download) and follow the [set-up guide](https://flutter-ko.dev/get-started/editor?tab=vscode) for VS Code.\
+• [Download Android Studio](https://developer.android.com/studio) and follow the [set-up guide](https://flutter-ko.dev/get-started/editor?tab=androidstudio) for Android Studio.\
 
 3. **Git**
 • Make sure that [git is installed](https://github.com/git-guides/install-git) and follow the set-up for [VS Code](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git) or [Android Studio](https://developer.android.com/studio/projects/version-control)
